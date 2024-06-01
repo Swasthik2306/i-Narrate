@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if img_data %}
+    <img src="data:image/jpeg;base64,{{ img_data }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>

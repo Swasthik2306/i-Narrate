@@ -1,0 +1,13 @@
+streamlit
+tensorflow
+pandas
+numpy
+keras
+tensorflow
+pickle
+PIL
+os
+werkzeug
+flask
+pybraille
+gtts

@@ -1,0 +1,21 @@
+{% extends "template.html" %}
+<link href="/static/css/backend.css" rel="stylesheet" type="text/css">
+
+{% block content %}
+
+    {% if img_data %}
+    <div class="container">
+        <div class="content_display">
+            <div class="audio-player ">
+                <h2 class="title2">Listen generated story</h2>
+                <audio controls>
+                    <source src="{{ url_for('static', filename=audio_file) }}" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    <div>
+
+    {% endif %}
+
+{% endblock %}

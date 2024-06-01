@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+<link href="/static/css/backend.css" rel="stylesheet" type="text/css">
+
+{% block content %}
+
+    {% if img_data %}
+    <div class="container">
+        <div class="content_display">
+            <div class="generated">
+                <h2 class="title2">Predicted Braille Script</h2>
+                <p>{{ braille }}</p>
+            </div>
+
+            <div class="download">
+                <form action="/download_pdf" method="get">
+                    <button type="submit">Download PDF</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,560 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400..700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/jsmath-cmti10?styles=20443');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Edu+SA+Beginner:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    /*===================TEXT=======================*/
+
+    
+html{
+    background-image: url('/static/images/background.svg');
+    background-size: cover;
+    background-position:top;
+    padding: 20px;
+
+}
+
+
+
+p{
+    
+        font-family: "Edu SA Beginner", cursive;
+        font-size: 26px;
+        font-weight: 400;
+        font-style: normal;
+}
+
+.title0{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+} 
+
+.auto-type{
+    color:#e0b701
+}
+
+.i-Narrate{
+    font-family: "Baskervville", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+    /*===================NAVIGATION=======================*/
+    .header{
+        display: flex;
+        background-color: #dac5882b;
+        width: 100%;
+        height: 55px;
+        margin-top:30px;
+        justify-content: center;
+        align-items: center;
+        font-family: "Signika Negative", sans-serif;
+        font-weight: 600;
+        
+    }
+    .header h2{
+        margin-left: 40px;
+    }
+
+    .go-back{
+        margin-right: 60px;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 12px;
+        color: #fff;
+        background-color: #222;
+        border-radius: 50px;
+        height: 25px;
+        transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+    }
+
+.go-back:hover{
+    background-color: #b78608;
+}
+    nav {
+        text-align: center;
+        margin: 0 auto;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        display: inline-block;
+    }
+    nav ul li {
+        margin: 0px 5px;
+        display: inline;
+        width: 100px;
+    }
+    nav ul li a {
+        font-size: 20px;
+        text-decoration: none;
+        color: #000;
+        gap:28px;
+        padding: 12px;
+        transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+
+        
+
+    }
+
+    nav ul li a:hover{
+        background-color:#d2b35667 ;
+        border-radius: 50px;
+        color: #c09102;
+    }
+    nav ul li.active a{
+        color: #c09102;
+    }
+/*===================loading=======================*/
+
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    width: 150px;
+    height: 110px;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    background-position: center;
+    margin: -55px 0 0 -55px;
+    text-align: center;
+  }
+  
+  .loading-spinner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .loading-spinner-circle {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: #dbb734;
+    margin: 0 5px;
+    animation: loading-spinner 1s ease-in-out infinite;
+  }
+  
+  .loading-spinner-circle:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading-spinner-circle:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  .loading-spinner-circle:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+  
+  .loading-spinner-circle:nth-child(5) {
+    animation-delay: 0.8s;
+  }
+  
+  @keyframes loading-spinner {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    20% {
+      transform: scale(1.5);
+      opacity: 0.5;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+/*===================play video=======================*/
+
+.video{
+    height: 290px;
+    width: 450px;
+    position: absolute;
+    top:165px;
+    left:50px;
+    padding: 10px;
+    
+}
+/*==========================================*/
+.text-braille{
+    position: absolute;
+    right: 10px;
+    top:185px;
+    padding: 15px;
+    width: 450px;
+    height: 380px;
+    background-color: #cccccc60;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    max-width: 445px;
+    max-height: 125px;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+#display{
+    width: 430px;
+    height: 130px;
+    padding: 10px;
+    font-size: 30px;
+    overflow: auto;
+    border: solid 2px #333;
+    border-radius: 15px;
+    background-color: #ffffffd3;
+    word-wrap: break-word;
+}
+
+.Download-button {
+    display: flex;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 12px 20px;
+    color: white;
+    background:#ad8406 ;
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em rgba(59, 48, 78, 0.527);
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 15px;
+}
+
+.Download-button svg {
+    margin-right: 8px;
+    width: 25px;
+}
+
+.Download-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em rgba(116, 109, 71, 0.627);
+}
+
+.Download-button:active {
+    box-shadow: 0 0.3em 1em -0.5em rgba(116, 109, 71, 0.627);
+}
+
+.Download-button::before {
+    position: absolute;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    left: 0;
+    transition: all 0.2s;
+}
+
+.Download-button::after {
+    position: absolute;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    right: 0;
+    transition: all 0.2s;
+}
+
+.Download-button:hover::before,
+.Download-button:hover::after {
+    height: 60%;
+}
+
+  
+/*===================UPLOAD IMAGE=======================*/
+
+.image_input {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        margin-top: 100px;
+        margin-bottom: 40px;
+        font-family: Arial, sans-serif;
+    }
+    
+    .input_form {
+        width: 30%;
+        border: 3px dotted #333;
+        border-radius: 15px;
+        padding: 20px;
+        background-color: #cccccc15;
+    }
+    
+    input[type="file"] {
+        width: 96%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    input[type=file]::file-selector-button {
+        margin-right: 20px;
+        border: none;
+        background: #333;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+    }
+    
+    input[type=file]::file-selector-button:hover {
+    background: #555;
+    }
+    
+    .image_input button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #e6b011;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    
+    .image_input button[type="submit"]:hover {
+        background-color: #ad8406;
+    }
+
+
+    form .custom-file-upload {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: 2px solid #222;
+        padding: 1.5rem;
+        border-radius: 10px;
+        background-color: #E5C48A;
+        margin-left: 35rem;
+        margin-right: 35rem;
+        transition: transform 0.3s ease-out;
+        transition: box-shadow 0.3s all;
+    }
+    
+    form .custom-file-upload .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    form .custom-file-upload .icon svg {
+        height: 80px;
+        fill: #222
+    }
+    
+    form .custom-file-upload .text {
+        margin-top: 20px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Signika Negative", sans-serif;
+        font-size: 26px;
+        color:#000;
+    }
+    
+    form .custom-file-upload .text span {
+        font-weight: 400;
+    }
+    
+    form .custom-file-upload input {
+        display: none;
+    }
+
+    #submitButton{
+        visibility: hidden;
+    }
+    
+
+    form .custom-file-upload:hover {
+        transform: scale(1.05);
+        z-index: 1;
+        box-shadow: 0px 48px 48px -58px #7f6003;
+}
+
+/*===================DISPLAY IMAGE=======================*/
+
+.image-container {
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 40px;
+}
+
+.image-frame {
+    display: inline-block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.center-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+img{
+    height: 400px;
+    max-width: 650px;
+}
+
+/*.............................................*/
+
+
+/*-----------------------------------------------------------------------------*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.content_display {
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 25px;
+}
+
+.content_display > div {
+    flex: 1 0 100%;
+    margin-bottom: 20px;
+}
+
+.generated{
+    background-color: #ffffff46;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.download_form {
+    border: 0.1px dotted #cccccc00;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+.download{
+    justify-content: center;
+    text-align: center;
+    display: inline;
+    margin: 0 auto;
+
+
+}
+
+.download button {
+    position: relative;
+    font-size: 1.3em;
+    padding: 0.7em 1.4em;
+    background-color: #BF0426;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.5em;
+    color: #DEDEDE;
+    width: 300px;
+    box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.1);
+}
+
+.download button::before {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, #CFAB3F 0%, #CFAB3F 50%, rgba(150,4,31,1) 50%, rgba(191,4,38,1) 60%);
+    border-radius: 0 0 0.5em 0;
+    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.download button:hover::before {
+    width: 1.6em;
+    height: 1.6em;
+    
+    
+}
+
+.download button:active {
+    box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+    transform: translate(0.1em, 0.1em);
+}
+
+
+.audio-player {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;}
+
+    .audio-player audio {
+    width: 100%;
+    height: 70px;
+    border-radius: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.title2{
+    font-family: "Signika Negative", sans-serif;
+    font-weight: 600;
+        
+}
+
+
+
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+@media (max-width: 600px) {
+    .go-back{
+        visibility: collapse;
+    }
+
+    .navigation{
+        visibility: collapse;
+    }
+    .header{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+        position: relative;
+        background-color: #fbfbfb;
+    }
+
+    .header h2{
+        margin-left: 5px;
+
+    }
+
+    
+/*------------------------------------------------HUMBURGER--------------------------------------------------------------*/
+  }
+  

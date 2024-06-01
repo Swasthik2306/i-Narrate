@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}i-Narrate{% endblock %}</title>
+    <link href="/static/css/backend.css" rel="stylesheet" type="text/css">
+   <!-- --> 
+    
+</head>
+<body>
+    <video class="video" src="/static/video.mp4" muted controls ></video>
+
+    <div class="text-braille">
+        <textarea id="myInput" rows="4" cols="50"></textarea>
+        <button class="Download-button" onclick="toggleConversion()">ENGLISH ⇋ BRAILLE</button>
+        <div id="display"></div>
+    </div>
+
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="loading-spinner-inner">
+        <div class="loading-spinner-circle"></div>
+        <div class="loading-spinner-circle"></div>
+        <div class="loading-spinner-circle"></div>
+        <div class="loading-spinner-circle"></div>
+        <div class="loading-spinner-circle"></div>
+        </div>
+    </div>
+    
+    
+    <div class='header'>
+        <h2 class="i-Narrate">i-NARRATE</h2>
+        <nav class="navigation">
+            <ul>
+            
+            <li class="{% if url_for('storyd') == request.path %}active{% endif %}">
+                <a href="{{ url_for('storyd') }}">GET YOUR STORY</a>
+            </li>
+            <li class="{% if url_for('brailled') == request.path %}active{% endif %}">
+                <a href="{{ url_for('brailled') }}">GET YOUR BRAILLE</a>
+            </li>
+            <li class="{% if url_for('audiod') == request.path %}active{% endif %}">
+                <a href="{{ url_for('audiod') }}">LISTEN STORY</a>
+            </li>
+            <li class="{% if url_for('inarrate') == request.path %}active{% endif %}">
+                <a href="{{ url_for('inarrate') }}">I-NARRATE</a>
+            </li>
+            </ul>
+        </nav>
+
+<!---->
+        
+        <a class ="go-back" href="{{ url_for('index') }}">GO BACK ↶</a>
+    </div>
+    <h1 class="title0">i-Narrate : <span> </span><span class="auto-type"></span></h1>
+    
+    
+
+<div class="">
+    <form method="POST" enctype="multipart/form-data" id="uploadForm">
+        <label class="custom-file-upload" for="file">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path fill="" d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+            </div>
+            <div class="text">
+                <span>Click to upload image</span>
+            </div>
+            <input type="file" id="file" name="image" accept="image/*" required hidden onchange="submitForm()">
+        </label>
+        <button type="submit" id="submitButton">Upload Image</button>
+    </form>
+</div>
+    
+
+    {% if img_data %}
+    <div class="image-container">
+        <div class="image-frame">
+            <img src="data:image/jpeg;base64,{{ img_data }}" alt="Uploaded Image">
+        </div>
+    </div>
+    {% endif %}
+
+    
+
+    {% block content %}{% endblock %}
+
+
+</div>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed(".auto-type", {
+            strings: [" Generate Story for your image", " Generate Braille Script for your image", " Listen to the Generated Story", " Or do it all..!!"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        })
+    </script>
+
+    <script>
+        function submitForm() {
+            document.getElementById('uploadForm').submit();
+        }
+    </script>
+
+    <script>
+        function submitForm() {
+            document.getElementById('loadingSpinner').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('uploadForm').submit();
+            }, 1500); 
+        }
+    </script>
+
+
+    <script>
+        var brailleToEnglish = {
+            " ": " ", // Space
+            "⠲": ".",
+            "⠁": "a", "⠃": "b", "⠉": "c", "⠙": "d", "⠑": "e",
+            "⠋": "f", "⠛": "g", "⠓": "h", "⠊": "i", "⠚": "j",
+            "⠅": "k", "⠇": "l", "⠍": "m", "⠝": "n", "⠕": "o",
+            "⠏": "p", "⠟": "q", "⠗": "r", "⠎": "s", "⠞": "t",
+            "⠥": "u", "⠧": "v", "⠺": "w", "⠭": "x", "⠽": "y",
+            "⠵": "z",
+            
+            "⠼⠁": "1", "⠼⠃": "2", "⠼⠉": "3", "⠼⠙": "4", "⠼⠑": "5",
+            "⠼⠋": "6", " ⠼⠛": "7", "⠼⠓": "8", "⠼⠊": "9", "⠼⠚": "0",
+            // Add more mappings as needed
+        };
+        
+        var isBrailleToText = true; // Initially set to Text to Braille
+        
+        function toggleConversion() {
+            isBrailleToText = !isBrailleToText;
+            var button = document.querySelector("button");
+            if (isBrailleToText) {
+                button.textContent = "ENGLISH ⇋ BRAILLE";
+                document.getElementById("display").style.fontFamily = "Braille Regular";
+            } else {
+                button.textContent = "ENGLISH ⇋ BRAILLE";
+                document.getElementById("display").style.fontFamily = "Arial, sans-serif";
+            }
+            updateDisplay();
+        }
+        
+        function updateDisplay() {
+            var input = document.getElementById("myInput").value;
+            var output = isBrailleToText ? convertTextToBraille(input) : convertBrailleToText(input);
+            document.getElementById("display").innerHTML = output;
+        }
+        
+        function convertBrailleToText(input) {
+            var englishText = "";
+            for (var i = 0; i < input.length; i++) {
+                var brailleChar = input[i];
+                if (brailleToEnglish.hasOwnProperty(brailleChar)) {
+                    englishText += brailleToEnglish[brailleChar];
+                } else {
+                    englishText += brailleChar; // If the character is not in the mapping, keep it as is
+                }
+            }
+            return englishText;
+        }
+        
+        function convertTextToBraille(input) {
+            var brailleText = "";
+            for (var i = 0; i < input.length; i++) {
+                var char = input[i].toLowerCase(); // Convert to lowercase to match keys in brailleToEnglish
+                var brailleChar = getKeyByValue(brailleToEnglish, char);
+                brailleText += brailleChar ? brailleChar : char; // If the character is not in the mapping, keep it as is
+            }
+            return brailleText;
+        }
+        
+        function getKeyByValue(object, value) {
+            return Object.keys(object).find(key => object[key] === value);
+        }
+        
+        document.getElementById("myInput").addEventListener("input", updateDisplay);
+        </script>
+
+</body>
+
+</html>

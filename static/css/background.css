@@ -1,0 +1,54 @@
+body{
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.absolute{
+    position: absolute;
+    top: 50px !important;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.bg-shape1{
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    position: relative;
+    animation: one 10s infinite;
+}
+.bg-shape2{
+    width: 100px;
+    height: 30px;
+    border-radius: 9999px;
+    position: relative;
+    animation: two 10s infinite;
+}
+
+
+@keyframes one{
+    0%{left:0px; top:0px}
+    25%{left:100px; top:70px}
+    50%{left:20px; top:60px}
+    75%{left:50px; top:80px}
+    100%{left:0px; top:0px}
+}
+
+.opacity-50{
+    opacity: 0.5;
+}
+
+.bg-blur{
+    filter: blur(90px);
+}
+
+.bg-primary{
+    background-color: blue;
+}
+.bg-teal{
+    background-color: rgb(43, 229, 207);
+}
