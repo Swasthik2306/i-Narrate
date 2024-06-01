@@ -1,3 +1,5 @@
+#FLASK APPLICATION OF I-NARRATE
+
 from flask import Flask, render_template, request, send_from_directory, send_file
 import numpy as np
 import io

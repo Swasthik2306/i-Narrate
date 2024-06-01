@@ -1,3 +1,5 @@
+# STREAMLIT APPLICATION OF I-NARRATE
+
 import streamlit as st
 import numpy as np
 from PIL import Image
